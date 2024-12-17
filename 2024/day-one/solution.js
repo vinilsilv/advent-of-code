@@ -1,7 +1,7 @@
-import { INPUT_DAY_ONE } from "./input";
+import {INPUT_DAY_ONE } from './input.js';
 
-let firstColumn: number[] = [];
-let secondColumn: number[] = [];
+let firstColumn = [];
+let secondColumn = [];
 
 INPUT_DAY_ONE.replace(/[\s\r\n]+/g, ',').split(',').map((e, index) => {
     index % 2 == 0
