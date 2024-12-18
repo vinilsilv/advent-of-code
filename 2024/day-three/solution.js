@@ -13,4 +13,5 @@ info.map(([, values]) => {
     totalSum += result;
 });
 
+// solution
 console.log(totalSum)

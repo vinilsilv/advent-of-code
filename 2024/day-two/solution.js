@@ -26,4 +26,5 @@ const safeLevels = levels.map(arr => {
     return checkSafetyInLevel(isIncreasing, arr);
 }).filter(safe => !!safe);
 
+// solution
 console.log(safeLevels.length);

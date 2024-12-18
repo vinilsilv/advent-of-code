@@ -18,4 +18,5 @@ firstColumn.map((e, index) => {
     differenceSum += Math.abs(e - secondColumn[index])
 });
 
+// solution
 console.log(differenceSum);
