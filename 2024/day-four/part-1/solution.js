@@ -8,7 +8,7 @@ let timesFound = 0;
 
 function checkForHorizontalWord(lineIndex, letterIndex) {
     const wordForwards = wordBoard[lineIndex].slice(letterIndex, letterIndex + targetWord.length).join('');   
-    const wordBackwards = wordBoard[lineIndex].slice(letterIndex - targetWord.length, letterIndex).join('');
+    const wordBackwards = wordBoard[lineIndex].slice(((letterIndex + 1) - targetWord.length), (letterIndex + 1)).reverse().join('');
 
     if(wordForwards == targetWord)
         timesFound += 1;
@@ -23,18 +23,14 @@ function checkForVerticalWord(lineIndex, letterIndex) {
 
     for (let i = 0; i < targetWord.length; i++) {
         const lineForwards = wordBoard[lineIndex + i];
-        if(!lineForwards)
-            return false;
 
-        wordForwards += lineForwards[letterIndex];
+        wordForwards += !!lineForwards ? lineForwards[letterIndex] : 0;
     }
 
     for (let i = 0; i < targetWord.length; i++) {
         const lineBackwards = wordBoard[lineIndex - i];
-        
-        if(!lineBackwards)
-            return false;
-        wordBackwards += lineBackwards[letterIndex];    
+
+        wordBackwards += !!lineBackwards ? lineBackwards[letterIndex] : 0;    
     }
 
     if(wordForwards == targetWord)
@@ -124,4 +120,5 @@ wordBoard.map((line, lineIndex) => {
     })
 })
 
+// solution
 console.log(timesFound)
